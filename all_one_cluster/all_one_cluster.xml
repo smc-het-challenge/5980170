@@ -1,0 +1,25 @@
+<?xml version="1.0" ?><tool id="all_one_cluster" name="all_one_cluster" version="0.1.0">
+    <requirements>
+    <container type="docker">docker.synapse.org/syn2813581/5980170/bioconductor_local</container>
+    </requirements>
+    <stdio>
+        <exit_code range="1:"/>
+    </stdio>
+    <command interpreter="Rscript">
+    all_ssms_one_cluster.R ${input_vcf}
+    </command>
+    <inputs>
+    <param format="vcf" help="" label="VCF file" name="input_vcf" type="data"/>
+    </inputs>
+    <outputs>
+    <data format="txt" from_work_dir="sc1B.txt" label="SC1B" name="sc1B"/>
+    <data format="txt" from_work_dir="sc1C.txt" label="SC1C" name="sc1C"/>
+    <data format="txt" from_work_dir="sc2A.txt" label="SC2A" name="sc2A"/>
+    <data format="txt" from_work_dir="sc2B.txt" label="SC2B" name="sc2B"/>
+    <data format="txt" from_work_dir="sc3A.txt" label="SC3A" name="sc3A"/>
+    <data format="txt" from_work_dir="sc3B.txt" label="SC3B" name="sc3B"/>
+    </outputs>
+    <help><![CDATA[
+        TODO: Fill in help.
+    ]]></help>
+</tool>

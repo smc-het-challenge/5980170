@@ -1,0 +1,171 @@
+{
+    "a_galaxy_workflow": "true", 
+    "format-version": "0.1", 
+    "name": "all_one_cluster", 
+    "steps": {
+        "1": {
+            "tool_id": "all_one_cluster", 
+            "uuid": "08e3f160-4a5b-4cca-9828-0f0fea614cfe", 
+            "user_outputs": [], 
+            "tool_version": "0.1.0", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "sc1B"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "sc1C"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "sc2A"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "sc2B"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "sc3A"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "sc3B"
+                }
+            ], 
+            "post_job_actions": {
+                "HideDatasetActionsc2B": {
+                    "output_name": "sc2B", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetActionsc2A": {
+                    "output_name": "sc2A", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetActionsc1B": {
+                    "output_name": "sc1B", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetActionsc1C": {
+                    "output_name": "sc1C", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetActionsc3A": {
+                    "output_name": "sc3A", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetActionsc3B": {
+                    "output_name": "sc3B", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }
+            }, 
+            "annotation": "", 
+            "input_connections": {
+                "input_vcf": {
+                    "output_name": "output", 
+                    "id": 0
+                }
+            }, 
+            "inputs": [], 
+            "tool_errors": null, 
+            "position": {
+                "top": 224, 
+                "left": 449
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input_vcf\": \"null\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 1, 
+            "name": "all_one_cluster"
+        }, 
+        "0": {
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "VCF_INPUT"
+                }
+            ], 
+            "uuid": "7b957bc9-fce4-4466-9d4c-3b7663130655", 
+            "user_outputs": [], 
+            "tool_id": null, 
+            "outputs": [], 
+            "tool_version": null, 
+            "annotation": "", 
+            "input_connections": {}, 
+            "tool_errors": null, 
+            "position": {
+                "top": 314, 
+                "left": 234
+            }, 
+            "tool_state": "{\"name\": \"VCF_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 0, 
+            "name": "Input dataset"
+        }, 
+        "2": {
+            "tool_id": "smc_het_eval", 
+            "uuid": "a3992b88-293c-48df-96f7-4a99def52c5a", 
+            "user_outputs": [], 
+            "tool_version": "0.1.0", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "outfile"
+                }
+            ], 
+            "post_job_actions": {
+                "RenameDatasetActionoutfile": {
+                    "output_name": "outfile", 
+                    "action_type": "RenameDatasetAction", 
+                    "action_arguments": {
+                        "newname": "OUTPUT"
+                    }
+                }
+            }, 
+            "annotation": "", 
+            "input_connections": {
+                "cocluster_assignment|ancestor|predfile": {
+                    "output_name": "sc3B", 
+                    "id": 1
+                }, 
+                "population|predfile": {
+                    "output_name": "sc1B", 
+                    "id": 1
+                }, 
+                "cluster_assignment|predfile": {
+                    "output_name": "sc2A", 
+                    "id": 1
+                }, 
+                "cocluster_assignment|predfile": {
+                    "output_name": "sc2B", 
+                    "id": 1
+                }, 
+                "cluster_assignment|phylogeny|predfile": {
+                    "output_name": "sc3A", 
+                    "id": 1
+                }
+            }, 
+            "inputs": [], 
+            "tool_errors": null, 
+            "position": {
+                "top": 237, 
+                "left": 716
+            }, 
+            "tool_state": "{\"cocluster_assignment\": \"{\\\"ancestor\\\": {\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}, \\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"proportion\": \"{\\\"submit\\\": \\\"no\\\", \\\"__current_case__\\\": 1}\", \"sample\": \"\\\"/opt/galaxy/data/Tumour1/Tumour1\\\"\", \"cellularity\": \"{\\\"submit\\\": \\\"no\\\", \\\"__current_case__\\\": 1}\", \"cluster_assignment\": \"{\\\"predfile\\\": null, \\\"phylogeny\\\": {\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"population\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 2, 
+            "name": "SMC-Het Evaluator"
+        }
+    }, 
+    "annotation": "mistake scenario where all SSMs are put in one cluster", 
+    "uuid": "93dd6e8d-b3f0-4b7f-9f58-357804bdeec9"
+}
